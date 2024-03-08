@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Recommender System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://www.bing.com/th?id=OIP.jlZKoxfBr3VdIpCQph9TRwHaEK&w=203&h=106&c=8&rs=1&qlt=90&o=6&dpr=1.4&pid=3.1&rm=2');
+            background-size: cover;
+            background-position: center; /* Position the background image */
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            image-rendering: optimizeQuality;
+            overflow: hidden;
+            animation: gradientAnimation 10s infinite alternate;
+        }
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            color: #000;
+            text-align: center;
+            margin-top: 50px;
+            position: relative;
+            font-size: 2em;
+
+
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            text-align: center;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            margin: 20px;
+            width: 300px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        input:focus {
+            border-color: #2ecc71;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        p {
+            margin: 0;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ANIME RECOMMENDER WEBSITE</h1>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Sign Up</h2>
+            {% if message and 'signup' in request.form %}
+                <p style="color: green; text-align: center;">{{ message }}</p>
+            {% endif %}
+            <form method="POST" action="{{ url_for('home') }}">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <input type="submit" name="signup" value="Sign Up">
+            </form>
+        </div>
+
+        <div class="form-container">
+            <h2>Login</h2>
+            {% if message and 'login' in request.form %}
+                <p style="color: green; text-align: center;">{{ message }}</p>
+            {% endif %}
+            <form method="POST" action="{{ url_for('home') }}">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <input type="submit" name="login" value="Login">
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>

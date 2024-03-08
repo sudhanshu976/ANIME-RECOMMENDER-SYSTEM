@@ -1,0 +1,4 @@
+venv/
+instance/
+models/
+user_data.db
